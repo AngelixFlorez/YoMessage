@@ -3,6 +3,7 @@ import "dotenv/config";
 import cors from "cors";
 import connectDB from "./lib/db.js";
 import { clerkMiddleware } from "@clerk/express";
+import clerkWebhookRouter from "./webhooks/clerk.webhook.js";
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -11,8 +12,7 @@ const PORT = process.env.PORT || 3100;
 const FRONTEND_URL = process.env.FRONTEND_URL;
 const publicDir = path.join(process.cwd(), "public");
 
-//debe estar en raw format 
-app.use("/api/webhooks/clerk", express.raw({type: "application/json"}), clerkWebhook());
+app.use("/api/webhooks/clerk", express.raw({ type: "application/json" }), clerkWebhookRouter);
 
 app.use(express.json());
 app.use(cors({origin: FRONTEND_URL, credentials: true}));
