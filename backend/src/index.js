@@ -6,6 +6,7 @@ import { clerkMiddleware } from "@clerk/express";
 import clerkWebhookRouter from "./webhooks/clerk.webhook.js";
 import fs from 'node:fs';
 import path from 'node:path';
+import authRoutes from "./routes/auth.route.js";
 
 const app = express();
 const PORT = process.env.PORT || 3100;
@@ -21,6 +22,9 @@ app.use(clerkMiddleware());
 app.get("/health", (req, res) => {
     res.status(200).json({ok:true});
 });
+
+app.use("/api/auth", authRoutes);
+
 
 if (fs.existsSync(publicDir)) {
    app.use(express.static(publicDir));
