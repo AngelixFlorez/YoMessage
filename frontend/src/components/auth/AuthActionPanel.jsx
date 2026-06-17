@@ -7,9 +7,8 @@ import { AuthCardShell } from "./AuthCardShell";
 const AFTER_AUTH = "/";
 
 const logoTileClassName = [
-  "relative rounded-2xl bg-linear-to-b from-white to-[#f2f2f7] p-2",
-  "shadow-lg shadow-black/8 ring-1 ring-black/8",
-  "dark:from-[#2c2c2e] dark:to-[#1a1a1c] dark:shadow-black/50 dark:ring-white/12",
+  "relative rounded-2xl bg-white p-2",
+  "shadow-lg shadow-black/8 ring-1 ring-black/8 dark:shadow-black/50 dark:ring-white/12",
 ].join(" ");
 
 const continueButtonClassName = [

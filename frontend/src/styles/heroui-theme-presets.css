@@ -102,4 +102,34 @@
     --accent: oklch(0.82 0.14 62);
     --accent-foreground: var(--eclipse);
   }
+
+  /* --- Purple --- */
+  html[data-theme="light"][data-theme-preset="purple"] {
+    --accent: oklch(0.55 0.22 295);
+    --accent-foreground: var(--snow);
+  }
+  html[data-theme="dark"][data-theme-preset="purple"] {
+    --accent: oklch(0.72 0.16 290);
+    --accent-foreground: var(--eclipse);
+  }
+
+  /* --- Blue --- */
+  html[data-theme="light"][data-theme-preset="blue"] {
+    --accent: oklch(0.52 0.2 250);
+    --accent-foreground: var(--snow);
+  }
+  html[data-theme="dark"][data-theme-preset="blue"] {
+    --accent: oklch(0.7 0.14 245);
+    --accent-foreground: var(--eclipse);
+  }
+
+  /* --- Red --- */
+  html[data-theme="light"][data-theme-preset="red"] {
+    --accent: oklch(0.55 0.22 28);
+    --accent-foreground: var(--snow);
+  }
+  html[data-theme="dark"][data-theme-preset="red"] {
+    --accent: oklch(0.68 0.18 26);
+    --accent-foreground: var(--snow);
+  }
 }

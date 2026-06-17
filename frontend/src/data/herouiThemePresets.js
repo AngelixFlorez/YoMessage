@@ -1,6 +1,24 @@
 /** HeroUI-style accent presets (Theme Builder palette). IDs match `data-theme-preset` in CSS. */
 export const HERO_UI_THEME_PRESETS = [
   {
+    id: "purple",
+    label: "Purple",
+    swatch:
+      "radial-gradient(circle at 30% 25%, oklch(0.78 0.18 290), oklch(0.62 0.2 295) 55%, oklch(0.5 0.22 300))",
+  },
+  {
+    id: "blue",
+    label: "Blue",
+    swatch:
+      "radial-gradient(circle at 30% 25%, oklch(0.72 0.16 245), oklch(0.58 0.18 250) 55%, oklch(0.48 0.2 255))",
+  },
+  {
+    id: "red",
+    label: "Red",
+    swatch:
+      "radial-gradient(circle at 30% 25%, oklch(0.72 0.2 26), oklch(0.58 0.22 28) 55%, oklch(0.48 0.2 30))",
+  },
+  {
     id: "default",
     label: "Default",
     swatch:
@@ -68,4 +86,4 @@ export const HERO_UI_THEME_PRESETS = [
   },
 ];
 
-export const DEFAULT_THEME_PRESET_ID = "default";
+export const DEFAULT_THEME_PRESET_ID = "purple";

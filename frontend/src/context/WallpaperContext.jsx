@@ -8,7 +8,7 @@ function readStoredWallpaperId() {
   const wallpaperId = localStorage.getItem(STORAGE_KEY);
   if (wallpaperId) return wallpaperId;
 
-  return "sonoma-horizon";
+  return "comic-spiderman";
 }
 
 export function WallpaperProvider({ children }) {
