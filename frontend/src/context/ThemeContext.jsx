@@ -36,7 +36,7 @@ export function ThemeProvider({ children }) {
     applyDomTheme(theme);
   }, [theme]);
 
-  // this applies the theme preset.
+  // this applies the theme preset, like sky, spotify, etc.
   useLayoutEffect(() => {
     applyThemePresetToDocument(themePreset);
   }, [themePreset]);
