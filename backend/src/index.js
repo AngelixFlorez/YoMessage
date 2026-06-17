@@ -8,9 +8,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
-import {app, server} from "./lib/socket.js";
+import { app, server } from "./lib/socket.js";
 
-const app = express();
 const PORT = process.env.PORT || 3100;
 const FRONTEND_URL = process.env.FRONTEND_URL;
 const publicDir = path.join(process.cwd(), "public");
@@ -18,28 +17,24 @@ const publicDir = path.join(process.cwd(), "public");
 app.use("/api/webhooks/clerk", express.raw({ type: "application/json" }), clerkWebhookRouter);
 
 app.use(express.json());
-app.use(cors({origin: FRONTEND_URL, credentials: true}));
+app.use(cors({ origin: FRONTEND_URL, credentials: true }));
 app.use(clerkMiddleware());
 
 app.get("/health", (req, res) => {
-    res.status(200).json({ok:true});
+    res.status(200).json({ ok: true });
 });
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-
 if (fs.existsSync(publicDir)) {
-   app.use(express.static(publicDir));
-   app.get("/{*any}", (req, res) => res.sendFile(path.join(publicDir, "index.html")));
+    app.use(express.static(publicDir));
+    app.get("/{*any}", (req, res) => res.sendFile(path.join(publicDir, "index.html")));
 }
 
 server.listen(PORT, () => {
     connectDB();
     console.log(`Server is running on port ${PORT}`);
-
-    if (process.env.NODE_ENV === "production")job.start();
-
 });
 
 
