@@ -83,7 +83,7 @@ export async function sendMessage(req, res){
         let videoUrl;
 
         if(req.file){
-           if(!hasImageKitConfig){
+           if(!hasImageKitConfig()){
             return res.status(500).json({error: "Server not configured for file uploads"});
            }
            const url = await uploadChatMedia(req.file);
