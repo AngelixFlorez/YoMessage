@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
-
+import {app, server} from "./lib/socket.js";
 
 const app = express();
 const PORT = process.env.PORT || 3100;
@@ -34,9 +34,12 @@ if (fs.existsSync(publicDir)) {
    app.get("/{*any}", (req, res) => res.sendFile(path.join(publicDir, "index.html")));
 }
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     connectDB();
     console.log(`Server is running on port ${PORT}`);
+
+    if (process.env.NODE_ENV === "production")job.start();
+
 });
 
 
