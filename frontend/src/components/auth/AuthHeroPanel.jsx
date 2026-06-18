@@ -10,8 +10,8 @@ const heroPanelClassName = [
 
 const heroImageClassName = [
   "h-auto max-h-[min(44vh,380px)] w-[min(92%,19rem)]",
-  "animate-[auth-float-y_4.5s_ease-in-out_infinite]",
-  "object-contain object-center select-none motion-reduce:animate-none",
+  "animate-auth-float-y",
+  "object-contain object-center select-none",
   "sm:w-[min(88%,21rem)] md:max-h-[min(52vh,440px)] md:w-[min(90%,22rem)]",
 ].join(" ");
 
@@ -35,7 +35,7 @@ export function AuthHeroPanel() {
 
         <div className="flex flex-1 items-center justify-center py-6 md:py-4">
           <img
-            src="/auth.webp"
+            src="/auth.png"
             alt=""
             width={640}
             height={640}

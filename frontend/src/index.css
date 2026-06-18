@@ -2,6 +2,10 @@
 @import "@heroui/styles";
 @import "./styles/heroui-theme-presets.css";
 
+@theme {
+  --animate-auth-float-y: auth-float-y 4.5s ease-in-out infinite;
+}
+
 
 /* HeroUI's dark fallback uses prefers-color-scheme but forgot [data-theme="light"], so OS dark +
    app light still applied dark: utilities. Re-define so explicit light theme wins system dark. */

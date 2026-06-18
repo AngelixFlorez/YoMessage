@@ -11,14 +11,22 @@ import messageRoutes from "./routes/message.route.js";
 import { app, server } from "./lib/socket.js";
 
 const PORT = process.env.PORT || 3100;
-const FRONTEND_URL = process.env.FRONTEND_URL;
 const publicDir = path.join(process.cwd(), "public");
 
 app.use("/api/webhooks/clerk", express.raw({ type: "application/json" }), clerkWebhookRouter);
 
 app.use(express.json());
-app.use(cors({ origin: FRONTEND_URL, credentials: true }));
-app.use(clerkMiddleware());
+app.use(cors({
+    origin: (origin, cb) => {
+        if (!origin) return cb(null, true);
+        cb(null, origin);
+    },
+    credentials: true,
+}));
+app.use(clerkMiddleware({
+    secretKey: process.env.CLERK_SECRET_KEY,
+    publishableKey: process.env.CLERK_PUBLISHABLE_KEY,
+}));
 
 app.get("/health", (req, res) => {
     res.status(200).json({ ok: true });

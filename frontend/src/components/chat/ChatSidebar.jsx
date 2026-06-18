@@ -93,6 +93,7 @@ function ChatSidebar() {
             className="w-full"
             value={searchQuery}
             onChange={setSearchQuery}
+            aria-label="Search conversations and users"
           >
             <SearchField.Group className="rounded-xl">
               <SearchField.SearchIcon />
